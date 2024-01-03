@@ -6,8 +6,34 @@ enum GameMode {
     End,
 }
 
+struct Player {
+    x:i32,
+    y:i32, 
+    velocity: f32,
+}
+
 struct State {
     mode: GameMode,
+}
+
+impl Player {
+
+    fn new(X:i32, y:i32) -> Self {
+        Player {
+            x, 
+            y,
+        }
+    }
+
+    fn render(&mut self, ctx: &mut BTerm) {
+        ctx.set(
+            0, 
+            self.y,
+            YELLOW,
+            BLACK,
+            to_cp437('@')
+        );
+    }
 }
 
 impl State {
